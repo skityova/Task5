@@ -32,11 +32,19 @@ public class FirstFragment extends Fragment {
         Button btn2 = binding.btn2;
 
         btn1.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_firstFragment_to_secondFragment);
+            Bundle arguments = new Bundle();
+            String data = binding.editText1.getText().toString();
+            arguments.putString("Data", data);
+            Navigation.findNavController(v).navigate(R.id.action_firstFragment_to_secondFragment,
+                    arguments);
         });
 
         btn2.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_firstFragment_to_thirdFragment);
+            Bundle arguments = new Bundle();
+            String data = binding.editText2.getText().toString();
+            arguments.putString("Data", data);
+            Navigation.findNavController(v).navigate(R.id.action_firstFragment_to_thirdFragment,
+                    arguments);
         });
     }
 }

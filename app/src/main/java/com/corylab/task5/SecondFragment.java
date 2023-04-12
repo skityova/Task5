@@ -23,4 +23,11 @@ public class SecondFragment extends Fragment {
         binding = FragmentSecondBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
+
+    @Override
+    public void onViewCreated(View v, Bundle savedInstance) {
+        Bundle arguments = this.getArguments();
+        String data = arguments.getString("Data");
+        binding.textView.setText(data);
+    }
 }
